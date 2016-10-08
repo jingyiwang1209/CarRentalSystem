@@ -1,0 +1,53 @@
+package com.ModifiedDada;
+
+import java.util.Arrays;
+
+public class ForBoth extends Vehicle
+{
+	
+
+	protected int CapacityMen;
+	protected int CapacityCargo;
+   
+	public ForBoth(int no, String model, int rent, int capacity, int capacityMen, int capacityCargo)
+	{
+		super(no, model, rent, capacity);
+		CapacityMen = capacityMen;
+		CapacityCargo = capacityCargo;
+	}
+
+	
+
+	@Override
+	public String toString()
+	{
+		return getNo()+"  "+getModel()+"  "+getRent()+"RMB/Day"+"  "+"Men Load: "+getCapacityMen()+" people, "+
+				"Cargo Load: "+getCapacityCargo()+" tons";
+	}
+
+	public int getCapacityMen()
+	{
+		return CapacityMen;
+	}
+
+	public int getCapacityCargo()
+	{
+		return CapacityCargo;
+	}
+
+	
+
+	public int CM()
+	{
+		return CapacityMen;
+	}
+	public int CC()
+	{
+		return CapacityCargo;
+	}
+   
+
+
+
+
+}

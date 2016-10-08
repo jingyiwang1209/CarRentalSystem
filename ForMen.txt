@@ -1,0 +1,22 @@
+package com.ModifiedDada;
+
+public class ForMan extends Vehicle
+{
+
+
+	public ForMan(int no, String model, int rent, int capacity)
+	{
+		super(no, model, rent, capacity);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString()
+	{
+		return getNo()+"  "+getModel()+"  "+getRent()+"RMB/Day"+"  "+"Men Load: "+
+				getCapacity()+" people";
+	}
+
+
+	
+}

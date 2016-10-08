@@ -1,0 +1,104 @@
+package com.ModifiedDada;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+public class RentingSystem
+{
+   Scanner number=new Scanner(System.in);
+   
+   private List<Vehicle>VL=new ArrayList<>();
+   private List<Vehicle>CustomerV=new ArrayList<>();
+   private int dnumber;
+  public void VehicleList()
+  {
+	  VL.add(new ForMan(1, "AudiA4", 500, 4));
+	  VL.add(new ForMan(2, "Mazda6", 400, 4));
+	  VL.add(new ForBoth(3, "Pikaxue6", 450, 0,4, 2));
+	  VL.add(new ForMan(4, "Jinlong", 800, 20));
+	  VL.add(new ForCargo(5, "Songhuajiang", 400,  4));
+	  VL.add(new ForCargo(6, "Ivike", 1000, 20));
+	  System.out.println("Welcome to Data Car Rental System");
+  }
+  public void Interaction()
+  {
+	  System.out.println("Would you rent a vehicle? 1: Yes. 2: No");
+	  int n=number.nextInt();
+	  if(n==1)
+	  {
+		  Iterator<Vehicle> it=VL.iterator();
+		  while(it.hasNext())
+		  {
+			  Vehicle i=it.next();
+			   System.out.println(i);
+		  }	 
+	  }
+	  else
+	  {
+		  System.out.println("Exit...");
+	  }
+	  
+	  System.out.println("How many vehicles would you rent?");
+	  int numberofv=number.nextInt();
+	  int vnumber;
+	  for(int i=0;i<numberofv;i++)
+	  {
+		  System.out.println("Please input the No. of the "+(i+1)+" vehicle:");
+		  vnumber=number.nextInt();
+		  for(int j=0;j<VL.size();j++)
+		  {
+			  if(vnumber==VL.get(j).getNo())
+			  {
+				  CustomerV.add(VL.get(j));
+			  }		  
+		  }
+	  }
+	  
+	  System.out.println("How many days would you rent for?");
+	  dnumber=number.nextInt();  	  
+  }
+  
+  public void customerBill()
+  {
+	  int count;
+	  int tCount=0;
+	  int tBill;
+	  int nMen;
+	  int nTMen=0;;
+	  int nCargo;
+	  int nTCargo=0;
+	  System.out.println("Your Bill List\n");
+	 
+	  
+	  System.out.println("***Vehicles for men: ");
+	  for(int i=0;i<CustomerV.size();i++)
+	  {
+		  count=CustomerV.get(i).getRent();
+		  tCount=tCount+count;
+		  if(CustomerV.get(i) instanceof ForMan ||CustomerV.get(i) instanceof ForBoth)
+		  {
+			  System.out.print(CustomerV.get(i).getModel()+"  ");
+			  nMen=(CustomerV.get(i).getCapacity()+CustomerV.get(i).CM());
+			  nTMen=nTMen+nMen;
+		  }    
+	  }
+	  System.out.println(nTMen+" people");   
+	    
+	  System.out.println("\n***Vehicles for cargo: ");
+	  for(int i=0;i<CustomerV.size();i++)
+	  {
+		  if(CustomerV.get(i) instanceof ForCargo ||CustomerV.get(i) instanceof ForBoth)
+		  {
+			  System.out.print(CustomerV.get(i).getModel()+"  ");
+			  nCargo=(CustomerV.get(i).getCapacity()+CustomerV.get(i).CC());
+			  nTCargo=nTCargo+nCargo;
+		  }	  	
+	  }
+	  System.out.println(nTCargo+" tons");
+	  
+	  tBill=tCount*dnumber;
+	 System.out.println("\nYour total bill is: "+tBill+" RMB"); 
+  }
+}

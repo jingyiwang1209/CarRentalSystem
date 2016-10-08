@@ -1,0 +1,15 @@
+package com.ModifiedDada;
+
+public class Test
+{
+
+	public static void main(String[] args)
+	{
+		RentingSystem rs=new RentingSystem();
+		rs.VehicleList();
+		rs.Interaction();
+		rs.customerBill();
+
+	}
+
+}

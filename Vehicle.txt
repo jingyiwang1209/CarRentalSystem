@@ -1,0 +1,49 @@
+package com.ModifiedDada;
+
+public class Vehicle
+{
+  private int No;
+  private String Model;
+  private int Rent;
+  private int Capacity;
+public Vehicle(int no, String model, int rent, int capacity)
+{
+	super();
+	No = no;
+	Model = model;
+	Rent = rent;
+	Capacity = capacity;
+}
+public int getNo()
+{
+	return No;
+}
+public String getModel()
+{
+	return Model;
+}
+public int getRent()
+{
+	return Rent;
+}
+public int getCapacity()
+{
+	return Capacity;
+}
+
+  
+public int CM()
+{
+	return 0;
+}
+public int CC()
+{
+	return 0;
+}
+
+
+
+  
+  
+  
+}
